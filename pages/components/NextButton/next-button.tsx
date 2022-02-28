@@ -1,15 +1,19 @@
 import classes from "./next-button.module.css";
 
 type NextButtonProps = {
-  //   label: string;
+  stage: number;
 };
 
 const NextButton: React.FC<NextButtonProps> = (props) => {
-  //   const { label } = props;
+  function checkIfCanMoveForward() {
+    return true;
+  }
 
   return (
     <div className={classes.rowbottom}>
-      <button className={classes.nextbutton}>Next {">"}</button>
+      <button onClick={checkIfCanMoveForward} className={classes.nextbutton}>
+        Next {">"}
+      </button>
     </div>
   );
 };

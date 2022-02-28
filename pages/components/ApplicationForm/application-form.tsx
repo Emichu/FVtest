@@ -1,15 +1,10 @@
-import { text } from "node:stream/consumers";
 import { useState } from "react";
-import {
-  useAccordionButton,
-  DropdownButton,
-  ButtonGroup,
-  Dropdown,
-} from "react-bootstrap";
+import { useAccordionButton } from "react-bootstrap";
 import Accordion from "react-bootstrap/Accordion";
-import NextButton from "../NextButton/next-button";
 
+import NextButton from "../NextButton/next-button";
 import TextInput from "../TextInput/text-input";
+
 import classes from "./application-form.module.css";
 
 type AccordionHeaderProps = {
@@ -112,7 +107,7 @@ export default function ApplicationForm() {
               />
             </div>
 
-            <NextButton />
+            <NextButton stage={1} />
           </Accordion.Body>
         </Accordion.Item>
 
@@ -220,7 +215,7 @@ export default function ApplicationForm() {
               </label>
             </div>
 
-            <NextButton />
+            <NextButton stage={2} />
           </Accordion.Body>
         </Accordion.Item>
 
@@ -249,7 +244,7 @@ export default function ApplicationForm() {
               />
             </label>
 
-            <NextButton />
+            <NextButton stage={3} />
           </Accordion.Body>
         </Accordion.Item>
       </Accordion>
