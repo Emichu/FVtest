@@ -1,3 +1,5 @@
+import { text } from "node:stream/consumers";
+import { useState } from "react";
 import {
   useAccordionButton,
   DropdownButton,
@@ -31,6 +33,22 @@ const AccordionHeader: React.FC<AccordionHeaderProps> = (props) => {
 };
 
 export default function ApplicationForm() {
+  const [state, setState] = useState({
+    stage1: {
+      firstname: "",
+      surname: "",
+      email: "",
+    },
+    stage2: {
+      telephone: "",
+      gender: "",
+      dob: ["", "", ""],
+    },
+    stage3: {
+      comments: "",
+    },
+  });
+
   return (
     <div className={classes.container}>
       <Accordion
@@ -43,12 +61,55 @@ export default function ApplicationForm() {
 
           <Accordion.Body className={classes.form}>
             <div className={classes.row}>
-              <TextInput label="First Name" />
-              <TextInput label="Surname" />
+              <TextInput
+                label="First Name"
+                value={state.stage1.firstname}
+                onTextChange={(value) =>
+                  setState((prevState) => {
+                    return {
+                      ...prevState,
+                      stage1: {
+                        ...prevState.stage1,
+                        firstname: value,
+                      },
+                    };
+                  })
+                }
+              />
+
+              <TextInput
+                label="Surname"
+                value={state.stage1.surname}
+                onTextChange={(value) =>
+                  setState((prevState) => {
+                    return {
+                      ...prevState,
+                      stage1: {
+                        ...prevState.stage1,
+                        surname: value,
+                      },
+                    };
+                  })
+                }
+              />
             </div>
 
             <div className={classes.row}>
-              <TextInput label="Email Address" />
+              <TextInput
+                label="Email Address"
+                value={state.stage1.email}
+                onTextChange={(value) =>
+                  setState((prevState) => {
+                    return {
+                      ...prevState,
+                      stage1: {
+                        ...prevState.stage1,
+                        email: value,
+                      },
+                    };
+                  })
+                }
+              />
             </div>
 
             <NextButton />
@@ -60,7 +121,21 @@ export default function ApplicationForm() {
 
           <Accordion.Body className={classes.form}>
             <div className={classes.row}>
-              <TextInput label="Telephone Number" />
+              <TextInput
+                label="Telephone Number"
+                value={state.stage2.telephone}
+                onTextChange={(value) =>
+                  setState((prevState) => {
+                    return {
+                      ...prevState,
+                      stage2: {
+                        ...prevState.stage2,
+                        telephone: value,
+                      },
+                    };
+                  })
+                }
+              />
 
               <label className={classes.formlabel}>
                 Gender
@@ -82,16 +157,64 @@ export default function ApplicationForm() {
                     type="number"
                     name="day"
                     className={classes.formdobinput}
+                    value={state.stage2.dob[0]}
+                    onChange={(e) =>
+                      setState((prevState) => {
+                        return {
+                          ...prevState,
+                          stage2: {
+                            ...prevState.stage2,
+                            dob: [
+                              e.target.value,
+                              prevState.stage2.dob[1],
+                              prevState.stage2.dob[2],
+                            ],
+                          },
+                        };
+                      })
+                    }
                   />
                   <input
                     type="number"
                     name="month"
                     className={classes.formdobinput}
+                    value={state.stage2.dob[1]}
+                    onChange={(e) =>
+                      setState((prevState) => {
+                        return {
+                          ...prevState,
+                          stage2: {
+                            ...prevState.stage2,
+                            dob: [
+                              prevState.stage2.dob[0],
+                              e.target.value,
+                              prevState.stage2.dob[2],
+                            ],
+                          },
+                        };
+                      })
+                    }
                   />
                   <input
                     type="number"
                     name="year"
                     className={classes.formdobinput}
+                    value={state.stage2.dob[2]}
+                    onChange={(e) =>
+                      setState((prevState) => {
+                        return {
+                          ...prevState,
+                          stage2: {
+                            ...prevState.stage2,
+                            dob: [
+                              prevState.stage2.dob[0],
+                              prevState.stage2.dob[1],
+                              e.target.value,
+                            ],
+                          },
+                        };
+                      })
+                    }
                   />
                 </div>
               </label>
@@ -111,6 +234,18 @@ export default function ApplicationForm() {
                 type="text"
                 name="comment"
                 className={classes.commentinput}
+                value={state.stage3.comments}
+                onChange={(e) =>
+                  setState((prevState) => {
+                    return {
+                      ...prevState,
+                      stage3: {
+                        ...prevState.stage3,
+                        comments: e.target.value,
+                      },
+                    };
+                  })
+                }
               />
             </label>
 
