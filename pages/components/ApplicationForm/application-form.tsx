@@ -5,8 +5,9 @@ import {
   Dropdown,
 } from "react-bootstrap";
 import Accordion from "react-bootstrap/Accordion";
+import NextButton from "../NextButton/next-button";
 
-import TextInput from '../TextInput/text-input'
+import TextInput from "../TextInput/text-input";
 import classes from "./application-form.module.css";
 
 type AccordionHeaderProps = {
@@ -50,9 +51,7 @@ export default function ApplicationForm() {
               <TextInput label="Email Address" />
             </div>
 
-            <div className={classes.rowbottom}>
-              <button className={classes.nextbutton}>Next {'>'}</button>
-            </div>
+            <NextButton />
           </Accordion.Body>
         </Accordion.Item>
 
@@ -61,36 +60,44 @@ export default function ApplicationForm() {
 
           <Accordion.Body className={classes.form}>
             <div className={classes.row}>
+              <TextInput label="Telephone Number" />
 
-            
-            <TextInput label="Telephone Number" />
-
-            <label className={classes.formlabel}>
-              Gender
-              <select title="Select Gender" className={classes.dropdown}>
-                <option>Select Gender</option>
-                <option>Male</option>
-                <option>Female</option>
-                <option>Other</option>
-                <option>Prefer not to say</option>
-              </select>
-            </label>
+              <label className={classes.formlabel}>
+                Gender
+                <select title="Select Gender" className={classes.dropdown}>
+                  <option>Select Gender</option>
+                  <option>Male</option>
+                  <option>Female</option>
+                  <option>Other</option>
+                  <option>Prefer not to say</option>
+                </select>
+              </label>
             </div>
 
             <div className={classes.row}>
-            <label className={classes.formlabel}>
-              Date of Birth
-              <div className={classes.dobinput}>
-              <input type="number" name="day" className={classes.formdobinput} />
-              <input type="number" name="month" className={classes.formdobinput} />
-              <input type="number" name="year" className={classes.formdobinput} />
-              </div>
-            </label>
+              <label className={classes.formlabel}>
+                Date of Birth
+                <div className={classes.dobinput}>
+                  <input
+                    type="number"
+                    name="day"
+                    className={classes.formdobinput}
+                  />
+                  <input
+                    type="number"
+                    name="month"
+                    className={classes.formdobinput}
+                  />
+                  <input
+                    type="number"
+                    name="year"
+                    className={classes.formdobinput}
+                  />
+                </div>
+              </label>
             </div>
 
-            <div className={classes.rowbottom}>
-              <button className={classes.nextbutton}>Next {'>'}</button>
-            </div>
+            <NextButton />
           </Accordion.Body>
         </Accordion.Item>
 
@@ -100,11 +107,14 @@ export default function ApplicationForm() {
           <Accordion.Body className={classes.form}>
             <label className={classes.formlabel}>
               Comments
-              <input type="text" name="comment" className={classes.commentinput} />
+              <input
+                type="text"
+                name="comment"
+                className={classes.commentinput}
+              />
             </label>
-            <div className={classes.rowbottom}>
-              <button className={classes.nextbutton}>Next ></button>
-            </div>
+
+            <NextButton />
           </Accordion.Body>
         </Accordion.Item>
       </Accordion>
