@@ -53,22 +53,6 @@
   padding: 5px;
 }
 
-.formlabel {
-  font-family: "Roboto", sans-serif;
-  font-weight: 400;
-  display: flex;
-  flex-direction: column;
-  margin: 5px 10px;
-}
-
-.forminput {
-  border-radius: 10px;
-  height: 40px;
-  border: none;
-  box-shadow: gray 0 0 10px inset;
-  width: 200px;
-}
-
 .formdobinput {
   border-radius: 10px;
   height: 40px;
@@ -103,6 +87,22 @@
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
+}
+
+.formlabel {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  display: flex;
+  flex-direction: column;
+  margin: 5px 10px;
+}
+
+.forminput {
+  border-radius: 10px;
+  height: 40px;
+  border: none;
+  box-shadow: gray 0 0 10px inset;
+  width: 200px;
 }
 
 .commentinput {

@@ -6,6 +6,7 @@ import {
 } from "react-bootstrap";
 import Accordion from "react-bootstrap/Accordion";
 
+import TextInput from '../TextInput/text-input'
 import classes from "./application-form.module.css";
 
 type AccordionHeaderProps = {
@@ -41,22 +42,14 @@ export default function ApplicationForm() {
 
           <Accordion.Body className={classes.form}>
             <div className={classes.row}>
-              <label className={classes.formlabel}>
-                First Name
-                <input type="text" name="firstname" className={classes.forminput} />
-              </label>
+              <TextInput label="First Name" />
+              <TextInput label="Surname" />
+            </div>
 
-              <label className={classes.formlabel}>
-                Surname
-                <input type="text" name="lastname" className={classes.forminput} />
-              </label>
-            </div>
             <div className={classes.row}>
-              <label className={classes.formlabel}>
-                Email Address:
-                <input type="text" name="email" className={classes.forminput} />
-              </label>
+              <TextInput label="Email Address" />
             </div>
+
             <div className={classes.rowbottom}>
               <button className={classes.nextbutton}>Next {'>'}</button>
             </div>
@@ -69,10 +62,8 @@ export default function ApplicationForm() {
           <Accordion.Body className={classes.form}>
             <div className={classes.row}>
 
-            <label className={classes.formlabel}>
-              Telephone number
-              <input type="number" name="telephone" className={classes.forminput} />
-            </label>
+            
+            <TextInput label="Telephone Number" />
 
             <label className={classes.formlabel}>
               Gender
@@ -96,8 +87,9 @@ export default function ApplicationForm() {
               </div>
             </label>
             </div>
+
             <div className={classes.rowbottom}>
-              <button className={classes.nextbutton}>Next ></button>
+              <button className={classes.nextbutton}>Next {'>'}</button>
             </div>
           </Accordion.Body>
         </Accordion.Item>

@@ -1,0 +1,15 @@
+.textinputlabel {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  display: flex;
+  flex-direction: column;
+  margin: 5px 10px;
+}
+
+.textinput {
+  border-radius: 10px;
+  height: 40px;
+  border: none;
+  box-shadow: gray 0 0 10px inset;
+  width: 200px;
+}
