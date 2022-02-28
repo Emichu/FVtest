@@ -1,34 +1,23 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Form App
 
-## Getting Started
+Project setup:
+npm i
+npm dev
 
-First, run the development server:
+Tech used
+VSCode
+Git
+React
+Typescript
+NextJS
+React Bootstrap
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+I used NextJS because it's simple and has everything I could need for this project.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+I chose to use Reacts internal state hooks for simplicity
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+I used react bootstrap instead of styled components, as I am more familiar with it and it was simpler to use for this purpose.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+I did not finish adding the logic to the next button as well as the proper validation, although the state potential is there.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+If I were to try this project again, I would probably try to simplify the styling, so I can focus on the state/validation/backend side of it more.
