@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-key */
 import type { NextPage } from "next";
 import ApplicationForm from "./components/ApplicationForm/application-form";
 
