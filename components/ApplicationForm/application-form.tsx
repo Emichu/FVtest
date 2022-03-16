@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useAccordionButton } from "react-bootstrap";
 import Accordion from "react-bootstrap/Accordion";
+import { Formik, Form, Field } from 'formik'
 
 import NextButton from "../NextButton/next-button";
 import TextInput from "../TextInput/text-input";
@@ -27,7 +28,8 @@ const AccordionHeader: React.FC<AccordionHeaderProps> = (props) => {
   );
 };
 
-export default function ApplicationForm() {
+function ApplicationForm() {
+
   const [state, setState] = useState({
     stage1: {
       firstname: "",
@@ -51,6 +53,7 @@ export default function ApplicationForm() {
         defaultActiveKey="0"
         flush
       >
+       
         <Accordion.Item className={classes.formcontainer} eventKey="0">
           <AccordionHeader label="Step 1: Your details" eventKey="0" />
 
@@ -251,3 +254,5 @@ export default function ApplicationForm() {
     </div>
   );
 }
+
+export default ApplicationForm;
