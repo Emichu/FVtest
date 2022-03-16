@@ -1,19 +1,22 @@
 import { NextPage } from "next";
 import {Formik, Form, Field, FormikProps} from 'formik'
 import * as yup from 'yup';
+import classes from './form-test.module.css'
 
 interface FormValues {
     firstName: string;
     lastName: string;
     email: string;
+    phoneNo: number;
   }
 
 const FormTestPage: NextPage = () => {
-    const initialValues: FormValues = { firstName: '', lastName: '', email: '' };
+    const initialValues: FormValues = { firstName: '', lastName: '', email: '', phoneNo: 0 };
+    const phoneNumExp = /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/
     
    return (
-     <div>
-       <h1>Form Test</h1>
+     <div className={classes.maincontainer}>
+       <h1 className={classes.formheader}>Form Test</h1>
        <Formik
          initialValues={initialValues}
          onSubmit={(values, actions) => {
@@ -27,31 +30,36 @@ const FormTestPage: NextPage = () => {
                 .required('Enter valid email'),
              firstName: yup.string().required('Please enter first name'),
              lastName: yup.string().required('Please enter last name'),
+             phoneNo: yup.string().matches(phoneNumExp, 'Phone number is not valid')
          })}
        >
            {({ errors, touched }) => (
-         <Form>
+         <Form className={classes.form}>
            <label htmlFor="firstName">First Name</label>
-           <Field id="firstName" name="firstName" placeholder="First Name" />
+           <Field className={classes.formfield} id="firstName" name="firstName" placeholder="First Name" />
            {errors.firstName && touched.firstName ? (
              <div>{errors.firstName}</div>
            ) : null}
 
            <label htmlFor="lastName">Last Name</label>
-           <Field id="lastName" name="lastName" placeholder="Last Name" />
+           <Field className={classes.formfield} id="lastName" name="lastName" placeholder="Last Name" />
            {errors.lastName && touched.lastName ? (
              <div>{errors.lastName}</div>
            ) : null}
 
            <label htmlFor="email">Email</label>
-           <Field id="email" name="email" placeholder="Email" />
+           <Field className={classes.formfield} id="email" name="email" placeholder="Email" />
            {errors.email && touched.email ? <div>{errors.email}</div> : null}
-           
-           <button type="submit">Submit</button>
+
+           <label htmlFor="phoneNo">Phone Number</label>
+           <Field className={classes.formfield} id="phoneNo" name="phoneNo" placeholder="Phone Number" />
+           {errors.phoneNo && touched.phoneNo ? <div>{errors.phoneNo}</div> : null}
+
+           <button className={classes.formbutton} type="submit">Submit</button>
          </Form>
          )}
        </Formik>
-     </div>
+       </div>
    );
   };
   
